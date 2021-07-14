@@ -6,5 +6,5 @@ class HomePageTopPost(models.Model):
     title = models.TextField()
     message = models.TextField()
     create_at = models.DateTimeField(auto_now = True)
-    upload = models.ImageField(upload_to ='uploads/')
+    upload = models.ImageField(upload_to ='static/content/', blank = False)
     Bg_Colour = models.TextField()

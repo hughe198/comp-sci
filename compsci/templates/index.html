@@ -1,38 +1,21 @@
 {% extends "base.html"%}
+{% load static %}
 <!DOCTYPE html>
 {% block content %}
-<div class="row justify-content mt-4">
-   <div class="col-lg-4 col-md-6 col-sm-6">
-    <div class="card" style="width: 25rem;">
-      <img src="..." class="card-img-top" alt="...">
+<div class="row justify-content mt-auto">
+
+{% for card in object_list %}
+   <div class="col-lg-4 col-md-5 col-sm-12 mt-3">
+    <div class="card" style="width: 25rem;  border-radius: 25px;">
+      <img src= "{% static card.upload.url %}" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title">{{card.title}}</h5>
+          <p class="card-text">{{card.message}}</p>
 
         </div>
-    </div>
-   </div>
-   <div class="col-lg-4 col-md-12 col-sm-12 ">
-     <div class="card" style="width: 25rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-  </div>
-</div>
-   </div>
-   <div class="col-lg-4 col-md-12 col-sm-12">
-     <div class="card" style="width: 25rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-  </div>
-</div>
    </div>
  </div>
-
+{% endfor %}
+</div>
 
 {% endblock  %}

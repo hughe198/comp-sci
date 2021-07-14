@@ -1,4 +1,7 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
+from content.models import HomePageTopPost
+from django.urls import path
 
-class HomePage(TemplateView):
-    template_name ='index.html'
+class HomePage(ListView):
+    template_name ="index.html"
+    model = HomePageTopPost
