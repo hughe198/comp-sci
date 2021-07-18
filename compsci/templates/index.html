@@ -2,15 +2,28 @@
 {% load static %}
 <!DOCTYPE html>
 {% block content %}
+<div class="container m-1" style=" height: 15rem; background-color: #cadfed; border-radius: 25px;" mt-2>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h1 class="text-center">Revise A Level and GCSE Computer Science</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <h2 class="text-center">A level & GCSE Revision Tools.</h2>
+  </div>
+</div>
+
+
+
 <div class="row justify-content mt-auto">
 
 {% for card in homepagetoppost_list %}
-   <div class="col-lg-4 col-md-5 col-sm-12 mt-3">
-    <div class="card" style="width: 20rem;  border-radius: 25px;">
-      <img src= "{{card.upload.url}}" class="card-img-top" style="width: 5rem"  alt="...">
+   <div class="col-lg-4 col-md-5 col-sm-12 mt-2">
+    <div class="card" style=" width: 25rem; height: 37rem;  border-radius: 25px; background-color: #cadfed">
+      <img src= "{{card.upload.url}}" class="card-img-top m-3" style="width: 23rem; height: 15rem; border-radius: 25px;"  alt="...">
         <div class="card-body">
-          <h5 class="card-title">{{card.title}}</h5>
-          <p class="card-text">{{card.message}}</p>
+          <h3 class="card-title"><b>{{card.title}}</b></h3>
+          <p class="card-text">{{card.message|linebreaks }}</p>
 
         </div>
    </div>
