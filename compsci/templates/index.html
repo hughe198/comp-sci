@@ -37,7 +37,7 @@
 {% for image in galleryimages_list %}
    <div class="col-lg-4 col-md-5 col-sm-12 mt-2">
     <div class="card" style=" width: 25rem; height: 37rem;  border-radius: 25px; background-color: #cadfed">
-      <img src= "{{image.upload.url}}" class="card-img-top m-3" style="width: 23rem; height: 15rem; border-radius: 25px;"  alt="...">
+      <img src= "files/{{image.image}}" class="card-img-top m-3" style="width: 23rem; height: 15rem; border-radius: 25px;"  alt="...">
    </div>
  </div>
 {% endfor %}
