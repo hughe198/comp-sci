@@ -20,13 +20,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link" href="#">Signup</a>
+            <a class="nav-link" href="#">Teacher Signup</a>
+            <a class="nav-link" href="#">Student Signup</a>
             <a class="nav-link" href="#">Login</a>
           </div>
         </div>
       </div>
     </nav>
     <div class="container mycontent">
+            {% for message in messages %}
+          <div class="alert alert-{{message.tags}}">
+            {{ message }}
+          </div>
+        {% endfor %}
         {% block content %}
 
         {% endblock %}

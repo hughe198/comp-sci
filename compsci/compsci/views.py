@@ -8,6 +8,8 @@ class HomePage(ListView):
 
     def get_context_data(self,*args, **kwargs):
          context = super(HomePage, self).get_context_data(*args,**kwargs)
-    #     context['HomePageTopPost'] = HomePageTopPost.objects.all()
          context['galleryimages_list'] = GalleryImages.objects.all()
          return context
+
+#class TeacherSignUp():
+#    template_name ="teacher_signup.html"

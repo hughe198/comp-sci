@@ -35,9 +35,12 @@
 </div>
 
 {% for image in galleryimages_list %}
-   <div class="col-lg-4 col-md-5 col-sm-12 mt-2">
-    <div class="card" style=" width: 25rem; height: 37rem;  border-radius: 25px; background-color: #cadfed">
+   <div class="col-lg-7 col-md-5 col-sm-12  mt-2">
+    <div class="card" style=" width: 25rem; border-radius: 25px; background-color: #cadfed">
       <img src= "files/{{image.image}}" class="card-img-top m-3" style="width: 23rem; height: 15rem; border-radius: 25px;"  alt="...">
+      <div class="card-body">
+        <h3 class="card-title"><b>{{image.caption|linebreaks}}</b></h3>
+      </div>
    </div>
  </div>
 {% endfor %}

@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User
+from accounts.models import NewUser
+
 
 # Create your models here.
 
@@ -13,8 +14,8 @@ class HomePageTopPost(models.Model):
     Bg_Colour = models.TextField()
 
 class GalleryImages(models.Model):
-    image = models.ImageField(upload_to ='static/content/', blank = False)
-    caption = models.TextField()
+    image = models.ImageField(upload_to ='content/', blank = False)
+    caption = models.TextField( blank = True, null =True)
 
 
 class BaseHelpers(models.Model):
@@ -30,14 +31,14 @@ class Answer(BaseHelpers):
     )
 
 
-class Topics(models.Model):
+class Topic(models.Model):
     topic_name = models.TextField()
 
 
 
 class Question(BaseHelpers):
     topic= models.ForeignKey(
-        'Topics',
+        'Topic',
         on_delete=models.CASCADE,
     )
 
@@ -47,15 +48,16 @@ class Tags(models.Model):
         Question,
         on_delete=models.CASCADE,
         null =True, blank = True)
-        
+
     tag = models.TextField(null = True,blank = True)
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, null = True, on_delete = models.CASCADE)
+    user = models.OneToOneField(NewUser, null = True, on_delete = models.CASCADE)
     image = models.ImageField(upload_to ='static/content/profiles', blank = False)
+    teacher = models.BooleanField(default=True)
 
 class User_Question_Answer(models.Model):
-    user = models.OneToOneField(User, null = True, on_delete = models.CASCADE)
+    user = models.OneToOneField(NewUser, null = True, on_delete = models.CASCADE)
     question = models.ForeignKey(
         Question,
         on_delete=models.CASCADE,
