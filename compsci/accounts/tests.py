@@ -60,4 +60,4 @@ class UserAccountTests(TestCase):
                 email='', user_name='a', first_name='first_name', password='password')
         with self.assertRaises(ValueError):
             db.objects.create_editor(
-                    email='testuser@super.com', user_name='username1', first_name='first_name', password='password', is_editor=False)
+                    email='testuser@super.com', user_name='username1', first_name='first_name', password='password', is_editor=False)        

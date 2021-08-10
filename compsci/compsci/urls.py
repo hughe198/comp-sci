@@ -27,5 +27,5 @@ urlpatterns = [
     #path('teachersignup', views.TeacherSignUp.as_view(), name="teachersignup"),
 ]
 
-if settings.DEBUG is True:
-    urlpatterns += static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
