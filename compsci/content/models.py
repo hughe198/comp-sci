@@ -13,7 +13,7 @@ class HomePageTopPost(models.Model):
     upload = models.ImageField(upload_to ='static/content/', blank = False)
     Bg_Colour = models.TextField()
 
-class GalleryImages(models.Model):
+class GalleryImage(models.Model):
     image = models.ImageField(upload_to ='content/', blank = False)
     caption = models.TextField( blank = True, null =True)
 
@@ -53,8 +53,10 @@ class Tags(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(NewUser, null = True, on_delete = models.CASCADE)
-    image = models.ImageField(upload_to ='static/content/profiles', blank = False)
-    teacher = models.BooleanField(default=True)
+    image = models.ImageField(upload_to ='static/content/profiles', blank = True)
+    teacher = models.BooleanField(default=False)
+    def __str__(self):
+        return self.user.email
 
 class User_Question_Answer(models.Model):
     user = models.OneToOneField(NewUser, null = True, on_delete = models.CASCADE)

@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView, ListView
-from content.models import HomePageTopPost, GalleryImages
+from content.models import HomePageTopPost, GalleryImage
 from django.urls import path
 
 class HomePage(ListView):

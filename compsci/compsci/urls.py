@@ -23,7 +23,7 @@ from accounts import views as user_views
 urlpatterns = [
     path('', views.HomePage.as_view(), name="home"),
     path('admin/', admin.site.urls),
-    path('register/',user_views.register, name ='register'),
+
     #path('teachersignup', views.TeacherSignUp.as_view(), name="teachersignup"),
 ]
 
