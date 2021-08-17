@@ -18,13 +18,14 @@ from django.urls import path, include
 from django.conf.urls import static
 from django.conf import settings
 from . import views
-from accounts import views as user_views
+from accounts.views import registration_view, logout_view, login_view
 
 urlpatterns = [
     path('', views.HomePage.as_view(), name="home"),
     path('admin/', admin.site.urls),
-
-    #path('teachersignup', views.TeacherSignUp.as_view(), name="teachersignup"),
+    path('register/',registration_view, name="register"),
+    path('logout/', logout_view,name = "logout"),
+    path('login/', login_view,name = "login"),
 ]
 
 
