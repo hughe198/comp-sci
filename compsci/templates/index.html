@@ -12,7 +12,15 @@
     <h2 class="text-center">A level & GCSE Revision Tools.</h2>
   </div>
   <div class="row justify-content-center">
-  <button class="btn btn-primary" style=" width: 15rem; border-radius: 10px" type="submit">Sign Up</button>
+    {% if not request.user.is_authenticated %}
+      <div class="row justify-content-center">
+        <div class = "col">
+    <form method="get" action="{% url "register" %}">
+          <button class="btn btn-primary" style=" width: 15rem; border-radius: 10px" type="submit">Sign Up</button>
+    </form>
+    </div>
+      </div>
+    {% endif %}
   </div>
 </div>
 
