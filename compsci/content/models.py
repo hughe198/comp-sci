@@ -29,11 +29,26 @@ class Answer(BaseHelpers):
         'Question',
         on_delete=models.CASCADE,
     )
-
+    topic= models.ForeignKey(
+        'Topic',
+        on_delete=models.CASCADE,
+    )
+    question_set= models.ForeignKey(
+        'QuestionSet',
+        on_delete=models.CASCADE,
+    )
+    correct = models.BooleanField(default=False)
+    answer = models.TextField(default ="")
+    def __str__(self):
+        return self.answer
 
 class Topic(models.Model):
+    qual_name = models.TextField(default ="GCSE")
+    unit_name = models.TextField(default ="Unit 1")
     topic_name = models.TextField()
-
+    image = models.ImageField(upload_to ='static/content/', blank = True)
+    def __str__(self):
+        return self.unit_name +" "+ self.topic_name
 
 
 class Question(BaseHelpers):
@@ -41,15 +56,32 @@ class Question(BaseHelpers):
         'Topic',
         on_delete=models.CASCADE,
     )
+    question_set= models.ForeignKey(
+        'QuestionSet',
+        on_delete=models.CASCADE,
+    )
+    question = models.TextField(default ="")
+    def __str__(self):
+        return self.question
 
+class QuestionSet(models.Model):
+    quiz_name = models.TextField(default ="Quiz")
+    topic= models.ForeignKey(
+        'Topic',
+        on_delete=models.CASCADE,
+    )
+    def __str__(self):
+        return self.quiz_name
 
 class Tags(models.Model):
-    question = models.ForeignKey(
-        Question,
+    questionset = models.ForeignKey(
+        QuestionSet,
         on_delete=models.CASCADE,
         null =True, blank = True)
 
     tag = models.TextField(null = True,blank = True)
+    def __str__(self):
+        return self.tag
 
 class UserProfile(models.Model):
     user = models.OneToOneField(NewUser, null = True, on_delete = models.CASCADE)

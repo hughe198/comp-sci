@@ -45,7 +45,7 @@ def login_view(request):
 
             if user:
                 login(request, user)
-                return redirect('home')
+                return redirect("student_home")
     else:
         form = login_form()
 

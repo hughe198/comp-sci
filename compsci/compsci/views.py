@@ -1,7 +1,8 @@
 from django.views.generic import TemplateView, ListView
-from content.models import HomePageTopPost, GalleryImage
+from content.models import HomePageTopPost, GalleryImage, Topic
 from django.urls import path
-
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.mixins import LoginRequiredMixin
 class HomePage(ListView):
     template_name ="index.html"
     model = HomePageTopPost
@@ -11,5 +12,12 @@ class HomePage(ListView):
          context['galleryimages_list'] = GalleryImage.objects.all()
          return context
 
-#class TeacherSignUp():
-#    template_name ="teacher_signup.html"
+
+
+class student_login(LoginRequiredMixin,ListView):
+    login_url = 'login'
+    redirect_field_name = 'home'
+    context_object_name = 'topic_list'
+    model = Topic
+    page_kwarg = 'page'
+    template_name = 'student_home.html'

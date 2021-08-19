@@ -26,6 +26,7 @@ urlpatterns = [
     path('register/',registration_view, name="register"),
     path('logout/', logout_view,name = "logout"),
     path('login/', login_view,name = "login"),
+    path('student_home/', views.student_login.as_view(),name ="student_home")
 ]
 
 
