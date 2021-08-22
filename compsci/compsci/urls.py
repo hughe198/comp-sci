@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls import static
+from django.conf.urls import static, url
 from django.conf import settings
 from . import views
 from accounts.views import registration_view, logout_view, login_view
@@ -26,7 +26,8 @@ urlpatterns = [
     path('register/',registration_view, name="register"),
     path('logout/', logout_view,name = "logout"),
     path('login/', login_view,name = "login"),
-    path('student_home/', views.student_login.as_view(),name ="student_home")
+    path('topic_detail/<str:pk>/', views.topicdetailview,name ="topic_detail"),
+    path('student_home/', views.student_login,name ="student_home"),
 ]
 
 

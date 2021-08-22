@@ -3,19 +3,26 @@
 
 {% block content %}
 <h1>Topics<span class="badge bg-primary"> Click on a topic you find interesting!</span></h1>
-<div class="row justify-content mt-auto">
-{% for card in topic_list %}
 
-   <div class="col-lg-4 col-md-5 col-sm-12 mt-2">
-    <div class="card" style=" width: 20rem; height: 20rem;  border-radius: 25px; background-color: #cadfed">
-        <div class="card-body">
-          <h3 class="card-title"><b>{{card.topic_name}}</b></h3>
-          <p class="card-text"><b>Unit: {{card.unit_name}}</b></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-            <p><img src= "files/{{card.image}}" class="card-img-top m-3" style="width: 23rem; height: 15rem; border-radius: 25px;"  alt="..."></p>
-        </div>
+
+{# <div class="row justify-content mt-auto"> #}
+{% for unit in units %}
+<div class="row justify-content mt-auto">
+  <h2>{{unit}}</h2>
+  {% for card in topic %}
+    {% if card.unit_name == unit %}
+       <div class="col-lg-4 col-md-5 col-sm-12 mt-2">
+        <div class="card" style=" width: 20rem; height: 20rem;  border-radius: 25px; background-color: #cadfed">
+            <div class="card-body">
+              <h3 class="card-title"><b>{{card.topic_name}}</b></h3>
+              <p class="card-text"><b>Unit: {{card.unit_name}}</b></p>
+              <a href= {% url 'topic_detail' card.id %} class="btn btn-primary">Go Here!</a>
+                <p><img src= "{{card.upload.url}}" class="card-img-top m-3" style="width: 23rem; height: 15rem; border-radius: 25px;"  alt="..."></p>
+            </div>
+     </div>
    </div>
- </div>
+   {% endif %}
+  {% endfor %}
 {% endfor %}
  </div>
 

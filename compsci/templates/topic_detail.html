@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>{{topic.topic_name}}<span class="badge bg-primary">New!</span></h1>
+<div class="row justify-content mt-auto">
+{% for card in list_quizes%}
+
+   <div class="col-lg-4 col-md-5 col-sm-12 mt-2">
+    <div class="card" style=" width: 20rem;  border-radius: 25px; background-color: #cadfed">
+        <div class="card-body">
+          <h3 class="card-title"><b>{{card.quiz_name}}</b></h3>
+
+          {# <p class="card-text"><b>Unit: {{card.}}</b></p> #}
+          <a href="#" class="btn btn-primary">Start</a>
+            {# <p><img src= "files/{{card.image}}" class="card-img-top m-3" style="width: 23rem; height: 15rem; border-radius: 25px;"  alt="..."></p> #}
+        </div>
+   </div>
+ </div>
+{% endfor %}
+ </div>
+
+{% endblock content %}
