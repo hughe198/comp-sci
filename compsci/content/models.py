@@ -64,6 +64,9 @@ class Question(BaseHelpers):
     def __str__(self):
         return self.question
 
+    def get_answers(self):
+        return self.answer_set.all()
+
 class QuestionSet(models.Model):
     quiz_name = models.TextField(default ="Quiz")
     topic= models.ForeignKey(
@@ -72,6 +75,10 @@ class QuestionSet(models.Model):
     )
     def __str__(self):
         return self.quiz_name
+
+    def get_questions(self):
+        return self.question_set.all()
+
 
 class Tags(models.Model):
     questionset = models.ForeignKey(

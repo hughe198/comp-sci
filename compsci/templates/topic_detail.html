@@ -12,7 +12,7 @@
           <h3 class="card-title"><b>{{card.quiz_name}}</b></h3>
 
           {# <p class="card-text"><b>Unit: {{card.}}</b></p> #}
-          <a href="#" class="btn btn-primary">Start</a>
+          <a href="{% url 'quiz' card.id %}" class="btn btn-primary">Start</a>
             {# <p><img src= "files/{{card.image}}" class="card-img-top m-3" style="width: 23rem; height: 15rem; border-radius: 25px;"  alt="..."></p> #}
         </div>
    </div>

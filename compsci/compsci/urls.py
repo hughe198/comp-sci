@@ -26,8 +26,9 @@ urlpatterns = [
     path('register/',registration_view, name="register"),
     path('logout/', logout_view,name = "logout"),
     path('login/', login_view,name = "login"),
-    path('topic_detail/<str:pk>/', views.topicdetailview,name ="topic_detail"),
-    path('student_home/', views.student_login,name ="student_home"),
+    path('topic_detail/<str:pk>/', views.topicdetailview, name="topic_detail"),
+    path('student_home/', views.student_login, name ="student_home"),
+    path('quiz/<str:pk>/', views.quiz, name='quiz')
 ]
 
 
